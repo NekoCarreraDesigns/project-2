@@ -1,0 +1,6 @@
+// running trails"https://www.trailrunproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200828387-993ff5fa6255bad42aa8102efcb6520d"
+// climbing route"https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.03&lon=-105.25&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200828387-2aa80e11d858712b7a6b20d2e64cfbc0"
+// mountain bike trails"https://www.mtbproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200828387-993ff5fa6255bad42aa8102efcb6520d"
+// hiking trails "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200828387-993ff5fa6255bad42aa8102efcb6520d"
+// parks "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200828387-993ff5fa6255bad42aa8102efcb6520d"
+//snow sports"https://www.powderproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200828387-993ff5fa6255bad42aa8102efcb6520d"
