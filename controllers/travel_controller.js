@@ -1,16 +1,15 @@
-//const mouad = require("./models/mouad.js")
 const express = require("express");
 const router = express.Router();
-//const db = require("../models")
+const db = require("../models");
 
 module.exports = () => {
     router.get("/", (req, res) => {
         db.travelto.findAll({}).then((dbAndrew) => {
             res.json(dbtravelto)
         });
-        res.render("index", [travelto])
+        //res.render("index", [travelto])
     });
-    router.get("/user", (req, res) => {
+    router.get("/users", (req, res) => {
         db.traveto.findAll({
             where: {
                 first_name: req.body.first_name,
@@ -33,7 +32,7 @@ module.exports = () => {
             }
         }).then((dbtravelto) => {
             res.json(dbtravelto)
-        })
+        });
     });
 
     router.get("/activities", (req, res) => {
@@ -42,12 +41,21 @@ module.exports = () => {
                 activityId: req.body.id,
                 locationId: req.body.locationId
             }
-        })
+        });
+    });
+
+    router.get("/locations", (req, res) => {
+        db.travelto.findAll({
+            where: {
+                id: locationId
+            }
+        }).then((dbtravelto) => {
+            res.json(dbtravelto)
+        });
     });
 
 
-
-    router.post("/new/destination", (req, res) => {
+    router.post("/new/location", (req, res) => {
         console.log(req.body);
         db.travelto.create({
             id: req.params.id,
@@ -56,11 +64,21 @@ module.exports = () => {
         })
     })
 
-    router.put("/new/destination/:id", (req, res) => {
+    router.put("/new/location/:id", (req, res) => {
         db.travelto.findONe({
             where: {
                 id: req.params.id
             }
         });
     });
-}
+    router.delete("/user/location/:id", (req, res) => {
+        db.travelto.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then((dbtravelto) => {
+            res.json(dbtravelto)
+        });
+    });
+};
+
