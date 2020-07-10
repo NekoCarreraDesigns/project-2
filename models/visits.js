@@ -17,5 +17,18 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+    Visits.associate = function(models){
+        Visits.belongsToMany(models.Users, {
+            as: "user_id",
+            foreignKey: "id"
+        });
+    };
+    Visits.associate = function(models) {
+        Visits.hasMany(models.Locations, {
+            as: "location_id",
+            foreignKey: "location_id"
+        })
+    }
+    
     return Visits;
 }
