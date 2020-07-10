@@ -1,37 +1,40 @@
 {
-  "name": "project-2",
+  "name": "travelto_db",
   "version": "1.0.0",
-  "description": "TravelTo travel destination finder",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NekoCarreraDesigns/project-2.git"
   },
-  "keywords": [
-    "node",
-    "express",
-    "handlebars",
-    "passport",
-    "bcrypt",
-    "uniqid",
-    "travel",
-    "sequelize",
-    "mysql"
-  ],
-  "author": "Neko Carrera, Andrew Karpisz, Ben Le, Mouad Kharbach",
-  "license": "ISC",
+  "author": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/NekoCarreraDesigns/project-2/issues"
   },
   "homepage": "https://github.com/NekoCarreraDesigns/project-2#readme",
   "dependencies": {
+<<<<<<< HEAD
     "eslint": "^7.4.0",
+=======
+    "bcrypt": "^5.0.0",
+>>>>>>> 0e8413d5fa567f8d543df483363f21ced3e9c1e2
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
+    "express-handlebars": "^5.0.0",
     "mysql2": "^2.1.0",
+<<<<<<< HEAD
     "sequelize": "^6.3.0"
+=======
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "sequelize": "^6.3.0",
+    "uniqid": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0"
+>>>>>>> 0e8413d5fa567f8d543df483363f21ced3e9c1e2
   }
 }
