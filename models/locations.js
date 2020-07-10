@@ -14,5 +14,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         }
     });
+    Locations.associate = function(models) {
+        Locations.hasMany(models.Activities, {
+            as: "activity_id",
+            foreignKey: "activity_id"
+        });
+    }
     return Locations;
 }

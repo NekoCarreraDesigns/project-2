@@ -13,10 +13,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        password: {
+        hashPass: {
             type: DataTypes.STRING,
             allowNull: false
         }
     });
+    
+    Users.associate = function(models){
+        Users.hasMany(models.Visits, {
+            foreignKey:true
+        })
+    }
     return Users;
 }
