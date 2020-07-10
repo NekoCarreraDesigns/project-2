@@ -9,10 +9,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
-  Activities.associate = function (models) {
-    Activities.belongsToMany(models.Locations, {
-      foreignKey: "activity_id",
-    });
-  };
+  
   return Activities;
 };
