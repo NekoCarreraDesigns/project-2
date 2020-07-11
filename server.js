@@ -12,10 +12,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+//handlebars stuff
 app.set("view engine", "handlebars");
 app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
   }));
+
+app.get("/", (req,res) => {
+        res.render("main");
+});
+//handlebars end
+
 
 const routes = require("./controllers/travel_controller.js");
 
