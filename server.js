@@ -17,10 +17,9 @@ app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
   }));
 
+const routes = require("./controllers/travel_controller.js");
 
-app.get("/", (req, res) => {
-        res.render("main");
-});
+app.use(routes);
 
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
