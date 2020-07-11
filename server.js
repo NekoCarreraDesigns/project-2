@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.use(express.static("public"));
-
+app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: true }));
 app.set("view engine", "handlebars");
 app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
