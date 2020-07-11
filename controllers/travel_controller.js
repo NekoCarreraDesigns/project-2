@@ -9,6 +9,7 @@ module.exports = () => {
         });
         //res.render("index", [travelto])
     });
+
     router.get("/users", (req, res) => {
         db.traveto.findAll({
             where: {
@@ -61,9 +62,11 @@ module.exports = () => {
             id: req.params.id,
             location: req.body.location,
             activity: req.body.activity
-        })
+        });
+    });
+    router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function (req, res) {
+        res.redirect("/")
     })
-
     router.put("/new/location/:id", (req, res) => {
         db.travelto.findONe({
             where: {
