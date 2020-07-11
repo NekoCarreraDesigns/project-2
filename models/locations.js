@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    let Locations = sequelize.define({
+    let Locations = sequelize.define("Locations", {
         location_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -15,9 +15,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     Locations.associate = function(models) {
-        Locations.hasMany(models.Activities, {
-            as: "activity_id",
-            foreignKey: "activity_id"
+        Locations.belongsToMany(models.Activities, {
+            as: "activity",
+            foreignKey: "activity_id",
+            through: "location_activities"
         });
     }
     return Locations;

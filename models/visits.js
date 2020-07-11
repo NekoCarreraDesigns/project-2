@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    let Visits = sequelize.define({
+    let Visits = sequelize.define( "Visits",{
         visit_id: {
             type:DataTypes.INTEGER,
             allowNull: false
@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        location_id: {
+        location: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -19,14 +19,15 @@ module.exports = function (sequelize, DataTypes) {
     });
     Visits.associate = function(models){
         Visits.belongsToMany(models.Users, {
-            as: "user_id",
+            sourceKey: "user_id",
             foreignKey: "id"
         });
     };
     Visits.associate = function(models) {
-        Visits.hasMany(models.Locations, {
-            as: "location_id",
-            foreignKey: "location_id"
+        Visits.belongsToMany(models.Locations, {
+            as: "Location_Activities",
+            foreignKey: "location_id",
+            through:"Visit_Locations"
         })
     }
     

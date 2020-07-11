@@ -1,7 +1,7 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 module.exports = function (sequelize, DataTypes) {
-    let Users = sequelize.define({
+    let Users = sequelize.define("Users",{
         id: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -25,11 +25,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
    
-    User.prototype.validPassword = function(password) {
+    Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
     };
   
-  User.addHook("beforeCreate", function(user) {
+  Users.addHook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
       });
     Users.associate = function(models){

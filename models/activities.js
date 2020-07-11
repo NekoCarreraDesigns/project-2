@@ -1,5 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  let Activities = sequelize.define({
+
+  const Activities = sequelize.define( "Activities",{
     activity_id: {
       type: DataTypes.STRING,
       allowNull: false,

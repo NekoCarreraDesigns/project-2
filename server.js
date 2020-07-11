@@ -1,11 +1,12 @@
-
+require("dotenv").config({path: __dirname + "/.env"});
 const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
+const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
+const db = require("./models/index.js");
 
-require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,9 +17,7 @@ app.set("view engine", "handlebars");
 app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
   }));
-app.get("/", (req, res) => {
-        res.render("main");
-});
+
 
 
 
@@ -26,11 +25,8 @@ const routes = require("./controllers/travel_controller.js");
 
 app.use(routes);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-
-
