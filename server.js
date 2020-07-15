@@ -21,9 +21,6 @@ app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
 }));
 
-
-
-
 const routes = require("./controllers/travel_controller.js");
 
 app.use(routes);
