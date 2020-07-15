@@ -6,7 +6,13 @@ const passport = require("passport");
   
     // main homepage 
     router.get("/", (req, res) => {
-        console.log("Reached");
+
+        db.travelto.findAll({}).then((dbAndrew) => {
+            res.json(dbtravelto)
+        });
+        res.render("index", [travelto])
+
+      console.log("Reached");
        // db.travelto.findAll({}).then((travel) => {
         //    console.log(travel);
         //    res.json(travel);
@@ -16,6 +22,7 @@ const passport = require("passport");
     // user login page after clicking register/login button
     router.get("/userlogin", (req, res) => {
          res.render("login", {style: "login.css"});
+
     });
 
     //user account page
