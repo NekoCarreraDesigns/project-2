@@ -7,7 +7,7 @@ module.exports = () => {
         db.travelto.findAll({}).then((dbAndrew) => {
             res.json(dbtravelto)
         });
-        //res.render("index", [travelto])
+        res.render("index", [travelto])
     });
 
     router.get("/users", (req, res) => {
