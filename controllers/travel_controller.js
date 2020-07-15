@@ -7,13 +7,7 @@ const passport = require("passport");
 // main homepage 
 router.get("/", (req, res) => {
 
-    res.render("index", [travelto])
-
     console.log("Reached");
-    // db.travelto.findAll({}).then((travel) => {
-    //    console.log(travel);
-    //    res.json(travel);
-    // });
     res.render("index", { style: "style.css" });
 });
 // user login page after clicking register/login button
@@ -24,16 +18,16 @@ router.get("/userlogin", (req, res) => {
 
 //user account page
 router.get("/users", (req, res) => {
-    // db.traveto.findAll({
-    //     where: {
-    //         first_name: req.body.first_name,
-    //         last_name: req.body.last_name,
-    //         locationsVisited: req.body.locationsVisited,
-    //         placesToVisit: req.body.placesToVisit
-    //     }
-    // }).then((dbtravelto) => {
-    //     res.json(dbtravelto);
-    // });
+    db.traveto.findAll({
+        where: {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            locationsVisited: req.body.locationsVisited,
+            placesToVisit: req.body.placesToVisit
+        }
+    }).then((dbtravelto) => {
+        res.json(dbtravelto);
+    });
     res.render("user.handlebars", { style: "profile.css" })
 });
 
@@ -61,13 +55,13 @@ router.get("/activities", (req, res) => {
 
 //locations page, for after searching in homepage
 router.get("/locations", (req, res) => {
-    // db.travelto.findAll({
-    //     where: {
-    //         id: locationId
-    //     }
-    // }).then((dbtravelto) => {
-    //     res.json(dbtravelto)
-    // });
+    db.travelto.findAll({
+        where: {
+            id: locationId
+        }
+    }).then((dbtravelto) => {
+        res.json(dbtravelto)
+    });
     res.render("locations", { style: "locations.css" })
 });
 
@@ -102,4 +96,4 @@ router.delete("/user/location/:id", (req, res) => {
 
 
 
-module.exports = router;
+module.exports = routes;
