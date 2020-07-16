@@ -15,7 +15,7 @@ router.get("/userlogin", (req, res) => {
     res.render("login", { style: "login.css" });
 
 });
-router.post("/user", (req, res) => {
+router.post("/userlogin", (req, res) => {
     db.travelto.create({
         user_name: user_name,
         password: password
