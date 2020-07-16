@@ -15,9 +15,17 @@ router.get("/userlogin", (req, res) => {
     res.render("login", { style: "login.css" });
 
 });
-
+router.post("/user", (req, res) => {
+    db.travelto.create({
+        user_name: user_name,
+        password: password
+    }).then((dbtravelto) => {
+        res.json(res)
+        console.log("New user")
+    });
+})
 //user account page
-router.get("/users", (req, res) => {
+router.get("/user", (req, res) => {
     db.traveto.findAll({
         where: {
             user_name: req.body.user_name,
@@ -27,7 +35,7 @@ router.get("/users", (req, res) => {
     }).then((dbtravelto) => {
         res.json(dbtravelto);
     });
-    res.render("user.handlebars", { style: "profile.css" })
+    res.render("user", { style: "profile.css" })
 });
 
 router.get("/visits", (req, res) => {
