@@ -11,26 +11,29 @@ $(document).ready(function () {
     $(".create").on("submit", function (event) {
         let id = $(this).data("id");
         let createUser = $(this).data("create");
-        console.log(id + createUser);
+        let newPass = $(this).data("newPass")
+        console.log(id + createUser + newPass);
+        console.log("clicked")
 
-        $.ajax("/users" + id, {
+        $.ajax("/user" + id, {
             type: "POST"
         }).then(function () {
             console.log("User has been created");
-            location.reload();
+            location.reload("/");
         })
     });
     $(".login").on("submit", function (event) {
+        console / log("clicked")
         let userName = $(this).data(userName);
         let userPword = $(this).data(userPword);
         console.log(userName + userPword)
-        $.ajax("/users", {
+        $.ajax("/user", {
             type: "POST",
             userName: this.userName,
             userPword: this.userPword
         }).then(function () {
             console.log("Welcome back" + userName);
-            location.replace("user")
+            location.replace("/")
         })
     })
 });
