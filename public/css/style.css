@@ -135,7 +135,7 @@ a.btn:hover {
   transition: all 0.2s;
 }
 
-.flex-form input[type="submit"]:hover {
+.flex-form .search input[type="submit"]:hover {
   background: #d73851;
   border: 1px solid #d73851;
 }
@@ -164,6 +164,12 @@ input[type="search"] {
   flex-basis: 500px;
 }
 
+.search .button {
+  background: #d73851;
+	border: none;
+	padding: 15px 20px;
+	border-radius: 25px;
+}
 #madeby {
   position: absolute;
   bottom: 0;

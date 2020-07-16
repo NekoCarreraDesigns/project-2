@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".close").on("submit", function (event) {
+    $(".search").on("submit", function (event) {
         $.ajax("/locations", {
             type: "GET"
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
             userPword: this.userPword
         }).then(function () {
             console.log("Welcome back" + userName);
-            location.replace("index")
+            location.replace("user")
         })
     })
 });
