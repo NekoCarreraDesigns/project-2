@@ -20,8 +20,7 @@ router.get("/userlogin", (req, res) => {
 router.get("/users", (req, res) => {
     db.traveto.findAll({
         where: {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
+            user_name: req.body.user_name,
             locationsVisited: req.body.locationsVisited,
             placesToVisit: req.body.placesToVisit
         }
@@ -96,4 +95,4 @@ router.delete("/user/location/:id", (req, res) => {
 
 
 
-module.exports = routes;
+module.exports = router;
