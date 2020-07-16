@@ -151,7 +151,7 @@ a.btn:hover {
 
 .flex-form > * {
   border: 0;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 0px;
   background: #fff;
   line-height: 50px;
   font-size: 1rem;
@@ -164,7 +164,7 @@ input[type="search"] {
   flex-basis: 500px;
 }
 
-.search .button {
+.button {
   background: #d73851;
 	border: none;
 	padding: 15px 20px;
