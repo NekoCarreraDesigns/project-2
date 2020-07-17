@@ -17,8 +17,8 @@ router.get("/userlogin", (req, res) => {
 });
 router.post("/userlogin", (req, res) => {
     db.travelto.create({
-        user_name: user_name,
-        password: password
+        user_name: req.body.user_name,
+        password: req.body.password
     }).then((dbtravelto) => {
         res.json(res)
         console.log("New user")
