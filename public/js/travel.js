@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    console.log('travel.js loaded')
     $(".search").on("submit", function (event) {
         $.ajax("/locations", {
             type: "GET"
@@ -8,26 +10,29 @@ $(document).ready(function () {
             location.reload();
         });
     });
-    $(".create").on("submit", function (event) {
+
+    $(".create").on("click", function (event) {
         let id = $(this).data("id");
         let createUser = $(this).data("create");
         let newPass = $(this).data("newPass")
         console.log(id + createUser + newPass);
         console.log("clicked")
-
-        $.ajax("/user" + id, {
+        $.ajax("/userlogin", {
+            url: "/userlogin",
             type: "POST"
         }).then(function () {
             console.log("User has been created");
             location.reload("/");
         })
     });
-    $(".login").on("submit", function (event) {
+
+    $(".login").on("click", function (event) {
         console / log("clicked")
         let userName = $(this).data(userName);
         let userPword = $(this).data(userPword);
         console.log(userName + userPword)
         $.ajax("/user", {
+            url: "/user",
             type: "POST",
             userName: this.userName,
             userPword: this.userPword
@@ -36,4 +41,5 @@ $(document).ready(function () {
             location.replace("/")
         })
     })
+
 });
