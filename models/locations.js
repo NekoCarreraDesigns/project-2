@@ -5,21 +5,15 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             primaryKey: true
         },
-        activity_id: {
-            type: DataTypes.INTEGER,
+        activity: {
+            type: DataTypes.STRING,
             allowNull: true,
         },
         location_name: {
             type: DataTypes.STRING,
             allowNull: false,
         }
-    });
-    Locations.associate = function(models) {
-        Locations.belongsToMany(models.Activities, {
-            as: "activity",
-            foreignKey: "activity_id",
-            through: "location_activities"
-        });
-    }
+    },);
+    
     return Locations;
 }
