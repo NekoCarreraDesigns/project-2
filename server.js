@@ -3,16 +3,22 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 const path = require("path");
+
 const app = express();
 const PORT = process.env.PORT || 8080;
-const db = require("./models/index.js");
-
+const db = require("./models/");
+//idk
+const passport = require("./config/password");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static(
+  "public"));
+
 app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.set("view engine", "handlebars");
 app.engine('handlebars', exphbs({
   layoutsDir: __dirname + '/views/layouts',
