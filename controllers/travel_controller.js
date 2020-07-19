@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-<<<<<<< HEAD
+
 const passport1 = require("../config/password.js");
-=======
 const uniqid = require("uniqid");
->>>>>>> b9d1bf0f91622e23de781210098148578c384073
 const db = require("../models");
 
 
@@ -62,7 +60,7 @@ router.post("/users", (req, res) => {
     res.redirect("")
 })
 //user account page
-<<<<<<< HEAD
+
 router.get("/users", (req, res) => {
     // db.travelto.findAll({
     //     where: {
@@ -73,7 +71,6 @@ router.get("/users", (req, res) => {
     // }).then((dbtravelto) => {
     //     res.json(dbtravelto);
     // });
-=======
 router.get("/user", (req, res) => {
     db.traveto.findAll({
         where: {
@@ -85,7 +82,7 @@ router.get("/user", (req, res) => {
         res.json(dbtravelto);
 
     });
->>>>>>> b9d1bf0f91622e23de781210098148578c384073
+
     res.render("user", { style: "profile.css" })
 });
 
@@ -127,7 +124,6 @@ router.get("/visits", (req, res) => {
 
 //locations page, for after searching in homepage
 router.get("/locations", (req, res) => {
-<<<<<<< HEAD
     // db.travelto.findAll({
     //     where: {
     //         id: locationId
@@ -135,7 +131,6 @@ router.get("/locations", (req, res) => {
     // }).then((dbtravelto) => {
     //     res.json(dbtravelto)
     // });
-=======
     db.travelto.findAll({
         where: {
             id: locationId
@@ -144,7 +139,6 @@ router.get("/locations", (req, res) => {
         res.json(dbtravelto)
 
     });
->>>>>>> b9d1bf0f91622e23de781210098148578c384073
     res.render("locations", { style: "locations.css" })
 });
 
@@ -157,9 +151,8 @@ router.get("/locations", (req, res) => {
 //     });
 // });
 
-<<<<<<< HEAD
+
 router.post("/userlogin", passport.authenticate("local", { failureRedirect: "/login" }), function (req, res) {
-=======
 
     router.post("/api/location", (req, res) => {
         console.log(req.body);
@@ -194,7 +187,6 @@ router.post("/new/location", (req, res) => {
     });
 });
 router.post("/login", passport.authenticate("local", { failureRedirect: "/login" }), function (req, res) {
->>>>>>> b9d1bf0f91622e23de781210098148578c384073
     res.redirect("/")
 });
 
