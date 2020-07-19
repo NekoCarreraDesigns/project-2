@@ -26,60 +26,11 @@
 
   <section class="gallery">
     <ul>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/hnEtVqVlVZU">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/RPzWI0rolS8">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/i1S4n4yQUKM">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/QgHvLSuIcLs">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/s74-lwoDFOw">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
-      <li class="item">
-        <div class="info">
-          <a href="#" title="{{location}}">
-            <img src="https://source.unsplash.com/KTTG3Jcrfz4">
-          </a>
-          <h3>{{location}}</h3>
-          <p>{{description}}</p>
-        </div>
-      </li>
+      {{#each locations}}
+    {{#unless wasVisited}}
+      {{> locations/location-block visited=true}}
+    {{/unless}}
+  {{/each}}
     </ul>
   </section>
 
