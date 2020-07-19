@@ -3,8 +3,8 @@ $(document).ready(function () {
     console.log('travel.js loaded')
     $(".search").on("submit", function (event) {
         $.ajax("/locations", {
+            url: "/locations",
             type: "GET"
-
         }).then(function (res) {
             console.log(res);
             location.reload();
@@ -12,27 +12,28 @@ $(document).ready(function () {
     });
 
     $(".create").on("click", function (event) {
-        let id = $(this).data("id");
-        let createUser = $(this).data("create");
-        let newPass = $(this).data("newPass")
-        console.log(id + createUser + newPass);
+        const newUser = {
+            userName: $("#user-create").val().trim(),
+            newPass: $("#pass-create").val().trim(),
+            newPassRep: $("#pass-repeat").val().trim(),
+            email: $("#email").val().trim()
+        }
         console.log("clicked")
-        $.ajax("/userlogin", {
-            url: "/userlogin",
-            type: "POST"
+        $.ajax("/users", {
+            type: "POST",
+            data: newUser
         }).then(function () {
             console.log("User has been created");
-            location.reload("/");
+            location.replace("/user");
         })
     });
 
     $(".login").on("click", function (event) {
-        console / log("clicked")
+        console.log("clicked")
         let userName = $(this).data(userName);
         let userPword = $(this).data(userPword);
         console.log(userName + userPword)
-        $.ajax("/user", {
-            url: "/user",
+        $.ajax("/users", {
             type: "POST",
             userName: this.userName,
             userPword: this.userPword
