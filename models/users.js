@@ -31,26 +31,25 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
       createdAt: false,
       timestamps: false,
+    })
+
+  Users.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  },
+
+    Users.addHook("beforeCreate", function (users) {
+      users.hashPass = bcrypt.hashSync(
+        users.hashPass,
+        bcrypt.genSaltSync(10, "a"),
+        null
+      );
     },
 
-
-    Users.prototype.validPassword = function (password) {
-      return bcrypt.compareSync(password, this.password);
-    });
-
-  Users.addHook("beforeCreate", function (users) {
-    users.hashPass = bcrypt.hashSync(
-      users.hashPass,
-      bcrypt.genSaltSync(10, "a"),
-      null
-    );
-  });
-
-  Users.associate = function (models) {
-    Users.hasMany(models.Visits, {
-      foreignKey: true,
-      timestamps: false,
-    });
-  };
+      Users.associate = function (models) {
+        Users.hasMany(models.Visits, {
+          foreignKey: true,
+          timestamps: false,
+        });
+      })
   return Users;
 };
