@@ -76,33 +76,22 @@ a{color:inherit;text-decoration:none}
 	display:block;
 }
 .login-form .group .input,
-.login-form .group .button {
+.login-form .group .button{
 	border:none;
 	padding:15px 20px;
 	border-radius:25px;
 	background:rgba(255,255,255,.1);
 }
-.login-form .group input[data-type="password"] {
+.login-form .group input[data-type="password"]{
+	text-security:circle;
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
 	color:#aaa;
 	font-size:12px;
 }
-.login-form .group .button {
+.login-form .group .button{
 	background:#d73851;
-}
-.create {
-	background: #d73851;
-	border: none;
-	padding: 15px 20px;
-	border-radius: 25px;
-}
-.login {
-	background: #d73851;
-	border: none;
-	padding: 15px 20px;
-	border-radius: 25px;
 }
 .login-form .group label .icon{
 	width:15px;

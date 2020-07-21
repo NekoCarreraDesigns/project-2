@@ -1,35 +1,26 @@
 $(document).ready(function () {
-
-    console.log('travel.js loaded')
-    $(".search").on("submit", function (event) {
+    $(".close").on("submit", function (event) {
         $.ajax("/locations", {
-            url: "/locations",
             type: "GET"
+
         }).then(function (res) {
             console.log(res);
             location.reload();
         });
     });
+    $(".create").on("submit", function (event) {
+        let id = $(this).data("id");
+        let createUser = $(this).data("create");
+        console.log(id + createUser);
 
-    $(".create").on("click", function (event) {
-        const newUser = {
-            userName: $("#user-create").val().trim(),
-            newPass: $("#pass-create").val().trim(),
-            newPassRep: $("#pass-repeat").val().trim(),
-            email: $("#email").val().trim()
-        }
-        console.log("clicked")
-        $.ajax("/users", {
-            type: "POST",
-            data: newUser
+        $.ajax("/users" + id, {
+            type: "POST"
         }).then(function () {
             console.log("User has been created");
-            location.replace("/user");
+            location.reload();
         })
     });
-
-    $(".login").on("click", function (event) {
-        console.log("clicked")
+    $(".login").on("submit", function (event) {
         let userName = $(this).data(userName);
         let userPword = $(this).data(userPword);
         console.log(userName + userPword)
@@ -39,8 +30,7 @@ $(document).ready(function () {
             userPword: this.userPword
         }).then(function () {
             console.log("Welcome back" + userName);
-            location.replace("/")
+            location.replace("index")
         })
     })
-
 });
