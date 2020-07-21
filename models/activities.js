@@ -4,12 +4,14 @@ module.exports = function (sequelize, DataTypes) {
     activity_id: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true
     },
     activity_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
+  }
+    );
   
   return Activities;
 };

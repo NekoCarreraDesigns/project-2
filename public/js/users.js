@@ -12,7 +12,7 @@ $("button.btn#sign-in").on("click", function(e){
         type: "POST",
         data: userD
     }).then(()=>{
-        window.location.replace("/users");
+        window.location.href = "/users" ;
     })
 });
 
@@ -27,10 +27,21 @@ $("button.btn#signup").on("click", function(e){
     $.ajax("/api/signup", {
         type: "POST",
         data: newUser
-    }).then(()=>{
-        window.location.replace("/login");
+    }).then(function(){
+        window.location.href = "/login";
     })
 
 })
 
+$("#searchBtn").on("click", function(e){
+    e.preventDefault();
+    let location = $("#loc-search").val().trim();
+
+    $.ajax("/api/location/" + location, {
+        type: "GET"
+    }).then(function(){
+        window.location.href = "/locations"
+    })
+
+})
 })
