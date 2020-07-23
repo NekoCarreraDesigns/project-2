@@ -1,20 +1,17 @@
 <div class="container">
-   
+
   <header>
-     <h2><a href="/"><i class="ion-plane"></i>oTravelTo</a></h2>
+    <h2><a href="/"><i class="ion-plane"></i>oTravelTo</a></h2>
     <nav>
       <ul>
         <li>
           <a href="/locations" title="Locations"> Locations</a>
         </li>
         <li>
-          <a href="/activities" title="Activities">Activities</a>
-        </li>
-        <li>
           <a href="/users" title="Profile">Username</a>
         </li>
         <li>
-          <a class="btn" href="/userlogin" title="Register / Log In">Register/Log In</a>
+          <a class="btn" href="/api/login" title="Register / Log In">Register/Log In</a>
         </li>
       </ul>
     </nav>
@@ -27,15 +24,15 @@
   <section class="gallery">
     <ul>
       {{#each locations}}
-    {{#unless wasVisited}}
+      {{#unless wasVisited}}
       {{> locations/location-block visited=true}}
-    {{/unless}}
-  {{/each}}
+      {{/unless}}
+      {{/each}}
     </ul>
   </section>
 
   <footer>
-  
+
   </footer>
 
 </div>

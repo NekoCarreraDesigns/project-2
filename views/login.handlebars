@@ -1,69 +1,58 @@
 {{!--This will be like a user sign in page, after they have created their accounts --}}
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked/><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label for="tab-1" class="tab">Sign
+            In</label>
         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
         <div class="login-form">
             <form class="sign-in-htm">
                 <div class="group">
                     <label for="user">Username</label>
-                    <input id="user" type="text" name="user" data-user="user">
+                    <input class="input" id="user" type="text" name="user-name" data-user="user-name">
                 </div>
                 <div class="group">
                     <label for="pass">Password</label>
-                    <input id="pass" type="password" name="pass" data-pass="password">
+                    <input id="pass" class="input" type="password" name="pass" data-pass="password">
                 </div>
                 <div class="group">
 
-                    <button type="submit" class="btn btn-primary" id="sign-in">Sign In</button>
-                    <button class="login" type="submit" class="button" class="btn btn-primary btn-lg"
-                        value="Sign In">Sign In</button>
-
+                    <button value="Sign-In" class="group" class="login" class="button" type="submit"
+                        class="btn btn-primary btn-lg" id="sign-in">Sign In</button>
                 </div>
-                
+
             </form>
             <div class="sign-up-htm">
                 <form>
-                <div>
-                    <label for="user" class="label">Username</label>
+                    <div class="group">
+                        <label for="new-user" class="label">Username</label>
+                        <input id="new-user" type="text" class="input" data-type="user-name" name="username" />
+                    </div>
+                    <div class="group">
+                        <label for="first-name" class="label">First Name</label>
+                        <input type="text" id="fname" class="input" data-type="first-name" name="first-name" />
+                    </div>
+                    <div class="group">
+                        <label for="last-name" class="label">Last Name</label>
+                        <input type="text" id="lname" class="input" data-type="last-name" name="last-name" />
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass-create" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass-repeat" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="email" type="text" class="input">
+                    </div>
+                    <div>
+                        <button class="group" class="button" class="login" type="submit" class="btn btn-primary btn-lg"
+                            id="signup">Sign
+                            Up</button>
+                    </div>
 
-                    <input id="user" type="text" name="username"/>
-                </div>
-                <div>
-                    <label for="first name">First Name</label>
-                    <input type="text" id="fname" name="firstname"/>
-                </div>
-                <div>
-                    <label for="last name">Last Name</label>
-                    <input type="text" id="lname" name="lastname"/>
-                </div>
-                <div>
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" name="password"/>
-
-                    <input id="user-create" type="text" class="input">
-                </div>
-                <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass-create" type="password" class="input" data-type="password">
-                </div>
-                <div class="group">
-                    <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass-repeat" type="password" class="input" data-type="password">
-                </div>
-                <div class="group">
-                    <label for="pass" class="label">Email Address</label>
-                    <input id="email" type="text" class="input">
-                </div>
-                <div class="group">
-                    <button class="create" class="btn btn-primary btn-lg" type="submit" class="button"
-                        value="Sign Up">Sign Up</button>
-
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary" id="signup">Sign Up</button>
-                </div>
-                
                 </form>
             </div>
         </div>
