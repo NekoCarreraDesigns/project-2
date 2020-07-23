@@ -17,6 +17,9 @@
 :-moz-placeholder {
   color: #56585b;
 }
+#searchBtn {
+  background: #d73851;
+}
 
 html {
   -webkit-box-sizing: border-box;

@@ -18,6 +18,16 @@ a{color:inherit;text-decoration:none}
 	background:url(https://images.unsplash.com/photo-1519424187720-db6d0fc5a5d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) no-repeat center;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
+#sign-in {
+	background: #d73851;
+	border-radius: 25px;
+	padding: 15px 20px;
+}
+#signup {
+	background: #d73851;
+	border-radius: 25px;
+	padding: 15px 20px;
+}
 .login-html{
 	width:100%;
 	height:100%;
@@ -40,6 +50,7 @@ a{color:inherit;text-decoration:none}
 .login-html .sign-up,
 .login-form .group .check{
 	display:none;
+	padding: 100px;
 }
 .login-html .tab,
 .login-form .group .label,
@@ -49,7 +60,6 @@ a{color:inherit;text-decoration:none}
 .login-html .tab{
 	font-size:22px;
 	margin-right:15px;
-	padding-bottom:5px;
 	margin:0 15px 10px 0;
 	display:inline-block;
 	border-bottom:2px solid transparent;
@@ -60,7 +70,7 @@ a{color:inherit;text-decoration:none}
 	border-color:#d73851;
 }
 .login-form{
-	min-height:345px;
+	min-height:400px;
 	position:relative;
 	perspective:1000px;
 	transform-style:preserve-3d;
@@ -83,7 +93,6 @@ a{color:inherit;text-decoration:none}
 	background:rgba(255,255,255,.1);
 }
 .login-form .group input[data-type="password"]{
-	text-security:circle;
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
