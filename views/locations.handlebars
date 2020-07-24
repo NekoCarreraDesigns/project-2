@@ -5,10 +5,10 @@
     <nav>
       <ul>
         <li>
-          <a href="/locations" title="Locations"> Locations</a>
+          <a class="btn" href="/locations" title="Locations"> Locations</a>
         </li>
         <li>
-          <a href="/users" title="Profile">Profile</a>
+          <a class="btn" href="/users/:id" title="Profile">Profile</a>
         </li>
         <li>
           <a class="btn" href="/api/login" title="Register / Log In">Register/Log In</a>
@@ -30,6 +30,8 @@
       {{> locations/location-block}}
       {{/each}}
     </ul>
+    <button id="pin" class="button group" value="user-pin" data-type="userPin">Let's Go</button>
+    <button id="remove-pin" class="button group" value="user-pin-remove" data-type="remove-userPin">Been there!</button>
 
   </section>
 
