@@ -1,28 +1,30 @@
 $(document).ready(function () {
 
-    $("button.btn#sign-in").on("click", function (e) {
+    $("#sign-in").on("click", function (e) {
         e.preventDefault();
+        console.log("clicked")
         let userD =
         {
-            user: $("[name=user]").val().trim(),
-            password: $("[name=pass]").val().trim()
+            user: $("#user").val().trim(),
+            password: $("#pass").val().trim()
         };
 
         $.ajax("/api/login", {
             type: "POST",
             data: userD
         }).then(() => {
-            location.replace("/user");
+            location.replace("/users/:id")
         })
     });
 
-    $("button.btn#signup").on("click", function (e) {
+    $("#signup").on("click", function (e) {
         e.preventDefault();
+        console.log("clicked")
         let newUser = {
-            username: $("[name=username]").val().trim(),
-            firstName: $("[name=firstname]").val().trim(),
-            lastName: $("[name=lastname]").val().trim(),
-            pass: $("[name=password]").val().trim()
+            username: $("#new-user").val().trim(),
+            firstName: $("#fname").val().trim(),
+            lastName: $("#lname").val().trim(),
+            pass: $("#pass-create").val().trim()
         };
         $.ajax("/api/signup", {
             type: "POST",
@@ -40,7 +42,7 @@ $(document).ready(function () {
         $.ajax("/api/location/" + location, {
             type: "GET"
         }).then(function () {
-            window.location.href = "/locations"
+            location.replace("/locations")
         })
 
     })
