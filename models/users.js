@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         primaryKey: true,
       },
-      username: {
+      user_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -28,7 +28,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       freezeTableName: true,
-      createdAt: false,
       timestamps: false,
     }
   );

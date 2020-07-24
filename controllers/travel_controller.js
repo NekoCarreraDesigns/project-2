@@ -3,6 +3,7 @@ const router = express.Router();
 const uniqid = require("uniqid");
 const db = require("../models");
 
+
 const authenticated = require("../config/middleware/authenticated");
 const passport = require("../config/password");
 // const path = require("path");
@@ -17,20 +18,16 @@ router.get("/login", (req, res) => {
 });
 
 //user account page
-router.get("/user", authenticated, (req, res) => {
-    if (req.user) {
-        console.log("verified");
-        db.Users.find({
-            where: {
-                username: req.body.user
-            }
-        }).then((dbtravelto) => {
-            res.json(dbtravelto);
-        });
-        res.render("user", { style: "profile.css" });
-    } else {
-        res.redirect("/login");
-    }
+router.get("/users/:id", authenticated, (req, res) => {
+    console.log("hello")
+    db.Users.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then((dbtravelto) => {
+        console.log("Hello!")
+        res.render("user", { style: "profile.css" })
+    })
 });
 
 router.get("/visits", (req, res) => {
@@ -39,8 +36,17 @@ router.get("/visits", (req, res) => {
 
 router.get("/locations", (req, res) => {
 
-})
+    db.Locations.findAll({
+        where: {
+            location_id: req.params.id,
+            location_name: req.params.name,
 
+        }
+    }).then((travel) => {
+        console.log("Let's Go!")
+    })
+
+})
 //locations page, for after searching in homepage
 router.get("/api/location/:location", (req, res) => {
     console.log(req.params.location);
@@ -62,12 +68,16 @@ router.post("/api/location", (req, res) => {
     db.Locations.create({
         location: req.body.location,
         activity: req.body.activity
+    }).then((res) => {
+        console.log(res)
+        res.json(res)
     });
+    res.render("locations", { style: "locations.css" })
 });
 
-router.post("/api/login", passport.authenticate("local", { successRedirect: "/users", failureRedirect: "/login" }), function (req, res) {
+router.post("/api/login", passport.authenticate("local", { successRedirect: "/users/:id", failureRedirect: "/login" }), function (req, res) {
     console.log(req.body);
-    res.json(req.user);
+    res.json(req.body);
 });
 
 router.post("/api/signup", function (req, res) {
@@ -75,7 +85,7 @@ router.post("/api/signup", function (req, res) {
     let id = uniqid();
     db.Users.create({
         id: id,
-        username: user.username,
+        user_name: user.username,
         first_name: user.firstName,
         last_name: user.lastName,
         hashPass: user.pass

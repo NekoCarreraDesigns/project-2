@@ -13,7 +13,7 @@ $(document).ready(function () {
             type: "POST",
             data: userD
         }).then(() => {
-            location.replace("/users");
+            location.replace("/users/:id")
         })
     });
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
         $.ajax("/api/location/" + location, {
             type: "GET"
         }).then(function () {
-            window.location.href = "/locations"
+            location.replace("/locations")
         })
 
     })
