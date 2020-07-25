@@ -18,17 +18,20 @@ router.get("/login", (req, res) => {
 });
 
 //user account page
-router.get("/users/:id", authenticated, (req, res) => {
+router.get("/user", (req, res) => {
     console.log("hello")
     db.Users.findAll({
         where: {
+            authenticated: true,
             id: req.params.id
         }
-    }).then((dbtravelto) => {
-        console.log("Hello!")
+    }).then(() => {
+        console.log(req.body)
         res.render("user", { style: "profile.css" })
     })
 });
+
+router.get("/user/:id",)
 
 router.get("/visits", (req, res) => {
 
@@ -48,19 +51,19 @@ router.get("/visits", (req, res) => {
 
 // })
 //locations page, for after searching in homepage
-router.get("/api/location/:id", (req, res) => {
-    // console.log(req.params.location);
-    // db.Locations.findAll({
-    //     where: {
-    //         location_name: req.params.location
-    //     }
-    // }).then((dbtravelto) => {
-    //     console.log(dbtravelto);
-    //     //json was here
-    // });
-    res.render("locations", { style: "locations.css" });
-    //nest another .get method here?
-});
+// router.get("/api/location/:id", (req, res) => {
+// console.log(req.params.location);
+// db.Locations.findAll({
+//     where: {
+//         location_name: req.params.location
+//     }
+// }).then((dbtravelto) => {
+//     console.log(dbtravelto);
+//     //json was here
+// });
+// res.render("locations", { style: "locations.css" });
+//nest another .get method here?
+// });
 
 
 // router.post("/api/location", (req, res) => {
@@ -76,9 +79,9 @@ router.get("/api/location/:id", (req, res) => {
 // });
 
 router.post("/api/login", passport.authenticate("local", { successRedirect: "/users/:id", failureRedirect: "/login" }), function (req, res) {
-    console.log(req.body);
-    res.json(req.body);
-    res.redirect("/users:id", 200)
+    console.log(res);
+    res.json(res);
+    res.redirect("/users/:id", 200)
 });
 
 router.post("/api/signup", function (req, res) {
