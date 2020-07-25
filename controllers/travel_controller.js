@@ -34,50 +34,51 @@ router.get("/visits", (req, res) => {
 
 });
 
-router.get("/locations", (req, res) => {
+// router.get("/locations", (req, res) => {
 
-    db.Locations.findAll({
-        where: {
-            location_id: req.params.id,
-            location_name: req.params.name,
+//     db.Locations.findAll({
+//         where: {
+//             location_id: req.params.id,
+//             location_name: req.params.name,
 
-        }
-    }).then((travel) => {
-        console.log("Let's Go!")
-    })
+//         }
+//     }).then((travel) => {
+//         console.log("Let's Go!")
+//     })
 
-})
+// })
 //locations page, for after searching in homepage
-router.get("/api/location/:location", (req, res) => {
-    console.log(req.params.location);
-    db.Locations.findAll({
-        where: {
-            location_name: req.params.location
-        }
-    }).then((dbtravelto) => {
-        console.log(dbtravelto);
-        //json was here
-    });
+router.get("/api/location/:id", (req, res) => {
+    // console.log(req.params.location);
+    // db.Locations.findAll({
+    //     where: {
+    //         location_name: req.params.location
+    //     }
+    // }).then((dbtravelto) => {
+    //     console.log(dbtravelto);
+    //     //json was here
+    // });
     res.render("locations", { style: "locations.css" });
     //nest another .get method here?
 });
 
 
-router.post("/api/location", (req, res) => {
-    console.log(req.body);
-    db.Locations.create({
-        location: req.body.location,
-        activity: req.body.activity
-    }).then((res) => {
-        console.log(res)
-        res.json(res)
-    });
-    res.render("locations", { style: "locations.css" })
-});
+// router.post("/api/location", (req, res) => {
+//     console.log(req.body);
+//     db.Locations.create({
+//         location: req.body.location,
+//         activity: req.body.activity
+//     }).then((res) => {
+//         console.log(res)
+//         res.json(res)
+//     });
+//     res.render("locations", { style: "locations.css" })
+// });
 
 router.post("/api/login", passport.authenticate("local", { successRedirect: "/users/:id", failureRedirect: "/login" }), function (req, res) {
     console.log(req.body);
     res.json(req.body);
+    res.redirect("/users:id", 200)
 });
 
 router.post("/api/signup", function (req, res) {
