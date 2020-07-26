@@ -13,7 +13,7 @@ $(document).ready(function () {
             type: "POST",
             data: userD
         }).then(() => {
-            location.replace("/users/:id")
+            location.replace("/users")
         })
     });
 
