@@ -9,6 +9,7 @@ const passport = require("../config/password");
 // const path = require("path");
 // main homepage 
 router.get("/", (req, res) => {
+    console.log("Landed")
     res.render("index", { style: "style.css" });
 });
 
@@ -18,38 +19,33 @@ router.get("/login", (req, res) => {
 });
 
 //user account page
-router.get("/user", (req, res) => {
+router.get("/users", (req, res) => {
     console.log("hello")
     db.Users.findAll({
         where: {
-            authenticated: true,
-            id: req.params.id
+            // id: req.params.id,
+            // username: req.params.user_name
         }
-    }).then(() => {
-        console.log(req.body)
+    }, (req, res) => {
+        console.log(req.body.user_name)
+    }).then((req) => {
         res.render("user", { style: "profile.css" })
     })
-});
-
-router.get("/user/:id",)
+})
 
 router.get("/visits", (req, res) => {
 
 });
 
-// router.get("/locations", (req, res) => {
+router.get("/locations", (req, res) => {
+    console.log("let's Go!")
+    db.Locations.findAll({
 
-//     db.Locations.findAll({
-//         where: {
-//             location_id: req.params.id,
-//             location_name: req.params.name,
+    }).then((dbtravel) => {
+        res.render("locations", { style: "locations.css" })
+    })
 
-//         }
-//     }).then((travel) => {
-//         console.log("Let's Go!")
-//     })
-
-// })
+})
 //locations page, for after searching in homepage
 // router.get("/api/location/:id", (req, res) => {
 // console.log(req.params.location);
@@ -78,10 +74,10 @@ router.get("/visits", (req, res) => {
 //     res.render("locations", { style: "locations.css" })
 // });
 
-router.post("/api/login", passport.authenticate("local", { successRedirect: "/users/:id", failureRedirect: "/login" }), function (req, res) {
+router.post("/api/login", passport.authenticate("local", { successRedirect: "/users", failureRedirect: "/login" }), function (req, res) {
     console.log(res);
     res.json(res);
-    res.redirect("/users/:id", 200)
+    res.send("/users", 200)
 });
 
 router.post("/api/signup", function (req, res) {

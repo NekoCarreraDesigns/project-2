@@ -10,7 +10,7 @@ $(document).ready(function () {
             type: "PUT",
             data: userPin
         }).then(() => {
-            location.reload("/users/:id")
+            location.reload("/users")
         });
     });
 
