@@ -6,7 +6,7 @@ $(document).ready(function () {
             location_id: $("user-location"),
             location_name: $("user-location-name")
         }
-        $.ajax("/users/location/:id", {
+        $.ajax("/api/location/:id", {
             type: "PUT",
             data: userPin
         }).then(() => {
@@ -21,11 +21,11 @@ $(document).ready(function () {
             location_id: $("user-location"),
             location_name: $("user-location-name")
         }
-        $.ajax("users/location/:id", {
+        $.ajax("api/location/:id", {
             type: "PUT",
             data: removePin
         }).then(() => {
-            location.reload("/users/:id")
+            location.reload("/users")
         })
     })
 
