@@ -6,10 +6,10 @@ $(document).ready(function () {
             location_id: $("user-location"),
             location_name: $("user-location-name")
         }
-        $.ajax("/api/location/:id", {
+        $.ajax("locations/:id", {
             type: "PUT",
             data: userPin
-        }).then(() => {
+        }).then((res) => {
             location.reload("/users")
         });
     });

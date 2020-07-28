@@ -47,36 +47,44 @@ router.get("/locations", (req, res) => {
 
 })
 //locations page, for after searching in homepage
-// router.get("/api/location/:id", (req, res) => {
-// console.log(req.params.location);
-// db.Locations.findAll({
-//     where: {
-//         location_name: req.params.location
-//     }
-// }).then((dbtravelto) => {
-//     console.log(dbtravelto);
-//     //json was here
-// });
-// res.render("locations", { style: "locations.css" });
-//nest another .get method here?
-// });
+router.get("/api/locations/:id", (req, res) => {
+    console.log("Lets GO!");
+    db.Locations.findOne({
+        where: {
+
+        }
+    }).then((dbtravelto) => {
+        console.log(res);
+        res.send("/locations")
+    }).catch((err) => {
+        if (err) {
+            console.log(500)
+        } else {
+            console.log(200)
+        }
+    })
+    // res.render("locations", { style: "locations.css" });
+    //nest another .get method here?
+});
 
 
-// router.post("/api/location", (req, res) => {
-//     console.log(req.body);
+// router.post("/locations", (req, res) => {
+//     console.log("Here We GO!");
 //     db.Locations.create({
-//         location: req.body.location,
+//         location_id: req.body.location_id,
+//         location_name: req.body.location_name,
 //         activity: req.body.activity
 //     }).then((res) => {
 //         console.log(res)
-//         res.json(res)
-//     });
-//     res.render("locations", { style: "locations.css" })
+//         res.render("locations", { style: "locations.css" })
+//     }).then((dbtravelto) => {
+//         res.send("/users")
+//     })
+
 // });
 
 router.post("/api/login", passport.authenticate("local", { successRedirect: "/users", failureRedirect: "/login" }), function (req, res) {
     console.log(res);
-    res.json(res);
     res.send("/users", 200)
 });
 
@@ -93,7 +101,7 @@ router.post("/api/signup", function (req, res) {
         res.redirect(200, "/users");
     }).catch(function (err) {
         console.log(err);
-        res.redirect(500, "/");
+        res.redirect(500, "/login");
     })
 
 })

@@ -37,9 +37,10 @@ $(document).ready(function () {
 
     $("#searchBtn").on("click", function (e) {
         e.preventDefault();
-        let location = $("#loc-search").val().trim();
+        console.log("clicked")
+        let location = $("#location-search").val().trim();
 
-        $.ajax("/api/location/" + location, {
+        $.ajax("/api/locations/:id" + location, {
             type: "GET"
         }).then(function () {
             location.replace("/locations")
