@@ -18,7 +18,7 @@ function letsGoRunSearch() {
     }).then((response) => {
         console.log(response);
         trailName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;
@@ -38,7 +38,7 @@ function letsGoClimbSearch() {
     }).then((response) => {
         console.log(response);
         routeName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;
@@ -58,7 +58,7 @@ function letsGoMtbSearch() {
     }).then((response) => {
         console.log(response);
         trailName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;
@@ -80,7 +80,7 @@ function letsGoHikingSearch() {
     }).then((response) => {
         console.log(response);
         trailName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;
@@ -101,7 +101,7 @@ function letsGoParkSearch() {
     }).then((response) => {
         console.log(response);
         parkName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;
@@ -121,7 +121,7 @@ function letsGoRideSearch() {
     }).then((response) => {
         console.log(response);
         mtnName = response.name;
-        difficultyLevel = response.diffculty;
+        difficultyLevel = response.difficulty;
         searchSummary = response.summary;
         searchLocation = response.location;
         currentConditions = response.conditionDetails;

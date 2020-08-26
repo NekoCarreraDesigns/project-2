@@ -1,23 +1,69 @@
-# project-2
 
-This is the TravelTo app it lets a user search for fun activities to do in our lovely state of Colorado. The user can add locations, and activities, update the places they have been, and delete items of their choosing. using the Adventure Projects API, which is an outdoor api website that has locations all over the world. Our app currently uses Colorado as its base, future developments will include geolocation to show items in the users specific area, and eventually the world when Americans are no longer banned in other countries.
+  # Title: Travelto
 
-# Usage
+  ![last commit](https://img.shields.io/github/last-commit/NekoCarreraDesigns/project-2?style=flat-square)![license badge](https://img.shields.io/github/license/NekoCarreraDesigns/project-2?style=flat-square)
 
-the app can be accesed at the heroku website
-"place deployed link here"
+  ### URL: https://project-2c.herokuapp.com/
 
-# Contributors
+  ## Description 
+  
+  App that lets you search and pin places you want to travel to in colorado
 
-Andrew Karpisz: github - akarpisz
-Ben Le: github - NLe97
-Mouad Kharbach: github - siirmouad
-Nicholas C. Maas: github -NekoCarreraDesigns
+  ## Table of Contents 
+   
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Future Developments](#futureDevelopments)
+  * [Credits](#credits)
+  * [Questions](#questions)
+  
+  ## Installation 
+  ``  clone repo, npm i, node server.js, localhost:8080
+  ``  
+  ## Usage 
+  
+  Used for travelling Colorado, allows user to pin locations, remove locations, and link up with other travellers
 
-# Technologies
+  ## Future Developments
 
-Node.js, Express.js, Passport, Bcrypt, MySQL, Sequelize, Handlebars, Bootstrap, Uniqid, and jQuery
+  get the app to function properly, currently busted but not forgotten
 
-# Questions, comments, bug reporting
+  ## Credits
 
-email Nicholas C. Maas at denvermaas@gmail.com
+  * node.js
+
+* [Express.js](https://www.npmjs.com/package/express)
+
+* passport
+
+* bcrypt
+
+* [MySQL](https://www.npmjs.com/package/mysql)
+
+* sequelize
+
+* handlebars
+
+* [Bootstrap](https://getbootstrap.com/)
+
+* uniqid
+
+* jquery
+
+  ## Contributors: 
+  
+  Nicholas C. Maas, Andrew Karpisz, Mouad Kharbach, Ben Le
+
+  ## Questions?
+
+  Contact me at  [denvernick@hotmail.com]
+  
+  or[![Follow on Github] (https://img.shields.io/github/followers/NekoCarreraDesigns?label=Follow&style=social)](http://www.github.com/NekoCarreraDesigns)
+
+  Copyright © 2020 Nicholas C. Maas (http://www.github.com/NekoCarreraDesigns)
+
+  ---
+
+  ##### _Created with [NekoCarreraDesigns readme generator] (https://github.com/NekoCarreraDesigns/readme-generator)
+
+  
